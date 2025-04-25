@@ -1,0 +1,25 @@
+.about-section {
+    text-align: center;
+    padding: 2rem;
+  
+    h1 {
+      margin-bottom: 1rem;
+      color: #007bff;
+    }
+  
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1rem auto;
+      border: 3px solid #007bff;
+    }
+  
+    .bio {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+      padding: 1rem;
+    }
+  }
