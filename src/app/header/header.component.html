@@ -1,8 +1,38 @@
-
-<nav>
-    <ul>
-      <li *ngFor="let item of navItems">
-        <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="nav">
+    <div class="nav-brand">
+      <a routerLink="/" class="logo">
+        <span class="logo-text">MiPortafolio</span>
+      </a>
+    </div>
+    
+    <ul class="nav-menu" [class.active]="isMenuOpen">
+      <li *ngFor="let item of navItems" class="nav-item">
+        <a 
+          [routerLink]="item.path" 
+          routerLinkActive="active"
+          class="nav-link"
+          (click)="closeMenu()">
+          <i [class]="item.icon" class="link-icon"></i>
+          <span class="link-text">{{ item.label }}</span>
+          <span class="link-hover"></span>
+        </a>
       </li>
     </ul>
+
+    <div class="nav-actions">
+      
+      
+      <button 
+        class="menu-toggle" 
+        (click)="toggleMenu()" 
+        [class.active]="isMenuOpen"
+        aria-label="Toggle menu"
+        [attr.aria-expanded]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </nav>
+</header>
