@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+
 
 interface Experience {
   title: string;
@@ -10,7 +12,8 @@ interface Experience {
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  imports: [CommonModule]
 })
 export class AboutComponent {
   title = 'Sobre Mí';
