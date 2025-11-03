@@ -26,16 +26,18 @@ $transition: 0.3s ease;
   // Imagen
   .about-image {
     flex: 0 0 250px;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
-      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
       transition: transform $transition, box-shadow $transition;
+
       &:hover {
         transform: scale(1.05) rotate(3deg);
-        box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
       }
     }
   }
@@ -49,6 +51,7 @@ $transition: 0.3s ease;
       color: $primary-color;
       margin-bottom: 15px;
       position: relative;
+
       &::after {
         content: '';
         width: 60px;
@@ -82,11 +85,12 @@ $transition: 0.3s ease;
       border-radius: $radius;
       padding: 20px;
       margin-bottom: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       transition: transform $transition, box-shadow $transition;
+
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
       }
 
       h3 {
@@ -101,15 +105,19 @@ $transition: 0.3s ease;
 
       ul {
         margin-top: 10px;
+        list-style-type: none; // Solo elimina el marcador, mantiene la semántica
+
         li {
           margin-bottom: 5px;
           position: relative;
           padding-left: 15px;
+
           &::before {
             content: '•';
             position: absolute;
             left: 0;
             color: $primary-color;
+            font-weight: bold; // Opcional: hace el punto más visible
           }
         }
       }
@@ -131,9 +139,10 @@ $transition: 0.3s ease;
         border-radius: 25px;
         font-weight: bold;
         transition: transform $transition, box-shadow $transition;
+
         &:hover {
           transform: translateY(-3px);
-          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
       }
     }
@@ -141,11 +150,13 @@ $transition: 0.3s ease;
     // Contacto
     .contact-info {
       margin-top: 25px;
+
       a {
         color: $primary-color;
         font-weight: bold;
         text-decoration: none;
         transition: color $transition;
+
         &:hover {
           color: $primary-dark;
         }
@@ -169,6 +180,7 @@ $transition: 0.3s ease;
       h1 {
         font-size: 2rem;
       }
+
       h2 {
         font-size: 1.5rem;
       }
