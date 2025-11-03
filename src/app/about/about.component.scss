@@ -1,25 +1,177 @@
-.about-section {
-    text-align: center;
-    padding: 2rem;
-  
-    h1 {
-      margin-bottom: 1rem;
-      color: #007bff;
-    }
-  
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
+// Variables
+$primary-color: #1e88e5;
+$primary-dark: #1565c0;
+$secondary-color: #f4f6f8;
+$text-color: #333;
+$card-bg: #fff;
+$radius: 12px;
+$transition: 0.3s ease;
+
+// Container
+.about {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 50px 20px;
+  background: $secondary-color;
+  color: $text-color;
+
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // Imagen
+  .about-image {
+    flex: 0 0 250px;
+    img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      margin: 1rem auto;
-      border: 3px solid #007bff;
-    }
-  
-    .bio {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-      padding: 1rem;
+      border-radius: 50%;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+      transition: transform $transition, box-shadow $transition;
+      &:hover {
+        transform: scale(1.05) rotate(3deg);
+        box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+      }
     }
   }
+
+  .about-content {
+    flex: 1;
+    min-width: 300px;
+
+    h1 {
+      font-size: 2.8rem;
+      color: $primary-color;
+      margin-bottom: 15px;
+      position: relative;
+      &::after {
+        content: '';
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(45deg, $primary-color, $primary-dark);
+        display: block;
+        margin-top: 5px;
+        border-radius: 2px;
+      }
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 35px;
+      margin-bottom: 20px;
+      color: $primary-dark;
+      border-bottom: 2px solid $primary-color;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 25px;
+      font-size: 1.05rem;
+    }
+
+    // Experiencia laboral
+    .experience-card {
+      background: $card-bg;
+      border-radius: $radius;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform $transition, box-shadow $transition;
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      }
+
+      h3 {
+        margin: 0 0 5px 0;
+        color: $primary-color;
+      }
+
+      small {
+        color: #666;
+        font-style: italic;
+      }
+
+      ul {
+        margin-top: 10px;
+        li {
+          margin-bottom: 5px;
+          position: relative;
+          padding-left: 15px;
+          &::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+    // Habilidades
+    .skills {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+
+      li {
+        background: linear-gradient(135deg, $primary-color, $primary-dark);
+        color: #fff;
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: transform $transition, box-shadow $transition;
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+      }
+    }
+
+    // Contacto
+    .contact-info {
+      margin-top: 25px;
+      a {
+        color: $primary-color;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color $transition;
+        &:hover {
+          color: $primary-dark;
+        }
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-image {
+      flex: 0 0 200px;
+      margin-bottom: 20px;
+    }
+
+    .about-content {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

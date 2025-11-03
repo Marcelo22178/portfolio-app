@@ -1,12 +1,33 @@
-<section class="about-section">
-    <h1>{{ title }}</h1>
-    <p>{{ description }}</p>
-    <div class="profile">
-      <!-- Aquí puedes agregar tu imagen de perfil -->
-      <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img">
+<section class="about">
+  <div class="about-container">
+    <div class="about-image">
+      <img src="assets/foto.jpg" alt="Foto de Marcelo" />
     </div>
-    <div class="bio">
-      <!-- Más información sobre ti -->
-      <p>With over X years of experience in web development...</p>
+
+    <div class="about-content">
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+
+      <h2>Experiencia Laboral</h2>
+      <div *ngFor="let exp of experiences" class="experience-card">
+        <h3>{{ exp.title }} – {{ exp.company }}</h3>
+        <small>{{ exp.period }}</small>
+        <ul>
+          <li *ngFor="let task of exp.description">{{ task }}</li>
+        </ul>
+      </div>
+
+      <h2>Habilidades</h2>
+      <ul class="skills">
+        <li *ngFor="let skill of skills">{{ skill }}</li>
+      </ul>
+
+      <h2>Contacto</h2>
+      <p class="contact-info">
+        📧 {{ contact.email }}<br>
+        📞 {{ contact.phone }}<br>
+        🔗 <a [href]="contact.linkedin" target="_blank">LinkedIn</a>
+      </p>
     </div>
-  </section>
+  </div>
+</section>
