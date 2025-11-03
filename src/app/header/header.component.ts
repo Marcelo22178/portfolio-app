@@ -26,8 +26,7 @@ export class HeaderComponent implements OnInit {
     // Cargar tema guardado si existe
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
-      this.isDarkTheme = true;
-      document.body.classList.add('dark-theme');
+      this.toggleTheme(); // Esto aplicará el tema oscuro
     }
   }
 

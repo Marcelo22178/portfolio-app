@@ -1,0 +1,588 @@
+// ============================================================================
+// VARIABLES Y MIXINS
+// ============================================================================
+
+// Colores
+$primary-color: #1976d2;
+$secondary-color: #2E86AB;
+$accent-color: #A23B72;
+$success-color: #28a745;
+$warning-color: #ffc107;
+$danger-color: #dc3545;
+
+$text-primary: #1976d2;
+$text-secondary: #666;
+$text-light: #888;
+
+$bg-light: #f8f9fa;
+$bg-white: #ffffff;
+$border-color: #e9ecef;
+
+// Breakpoints
+$tablet: 768px;
+$desktop: 1024px;
+
+// Mixins
+@mixin card-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ============================================================================
+// ESTILOS GENERALES
+// ============================================================================
+
+.skills-section {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// ============================================================================
+// COMPONENTES REUTILIZABLES
+// ============================================================================
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: $text-secondary;
+    font-weight: 300;
+  }
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  &.btn-primary {
+    background: linear-gradient(135deg, $primary-color, $secondary-color);
+    color: white;
+    
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+    }
+  }
+}
+
+// ============================================================================
+// BLOQUE: CATEGORÍAS DE HABILIDADES
+// ============================================================================
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.category {
+  .category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $primary-color;
+    display: inline-block;
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+.skill-card {
+  @include flex-center;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  background: $bg-white;
+  border-radius: 12px;
+  @include card-shadow;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+  
+  .skill-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    height: 60px;
+    @include flex-center;
+  }
+  
+  .skill-info {
+    text-align: center;
+    
+    .skill-name {
+      font-weight: 600;
+      color: $text-primary;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+// ============================================================================
+// BLOQUE: DEMOSTRACIÓN API
+// ============================================================================
+
+.api-demo-section {
+  background: $bg-light;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-top: 2rem;
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  
+  .demo-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+  
+  .demo-description {
+    color: $text-secondary;
+    font-size: 1.1rem;
+  }
+}
+
+.api-controls {
+  @include flex-center;
+  margin-bottom: 2rem;
+}
+
+.api-results {
+  margin-bottom: 3rem;
+  
+  .results-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: $bg-white;
+  border-radius: 12px;
+  @include card-shadow;
+  
+  .user-avatar {
+    @include flex-center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $primary-color, $accent-color);
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  
+  .user-details {
+    flex: 1;
+    
+    .user-name {
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: 0.25rem;
+    }
+    
+    .user-email {
+      color: $text-secondary;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .user-role {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba($primary-color, 0.1);
+      color: $primary-color;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  }
+}
+
+// ============================================================================
+// BLOQUE: VISUALIZACIÓN DE DATOS
+// ============================================================================
+
+.data-visualization {
+  .viz-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .viz-description {
+    color: $text-secondary;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+.chart-container {
+  background: $bg-white;
+  padding: 2rem;
+  border-radius: 12px;
+  @include card-shadow;
+  height: 400px;
+  
+  ::ng-deep {
+    .ngx-charts {
+      text {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+      }
+    }
+  }
+}
+
+// ============================================================================
+// ESTADOS Y ANIMACIONES
+// ============================================================================
+
+.icon-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Responsive
+@media (max-width: $tablet) {
+  .skills-section {
+    padding: 2rem 1rem;
+  }
+  
+  .api-demo-section {
+    padding: 1.5rem;
+  }
+  
+  .chart-container {
+    height: 300px;
+    padding: 1rem;
+  }
+}
+
+
+// ============================================================================
+// FILTROS DE SKILLS
+// ============================================================================
+
+.skills-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid $primary-color;
+    background: transparent;
+    color: $primary-color;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    
+    &:hover {
+      background: rgba($primary-color, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    &.active {
+      background: $primary-color;
+      color: white;
+      box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+    }
+  }
+}
+
+// ============================================================================
+// HEADER DE CATEGORÍA
+// ============================================================================
+
+.category-header {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba($primary-color, 0.2);
+  
+  .category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+  
+  .skills-count {
+    background: $primary-color;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+// ============================================================================
+// SKILLS GRID MEJORADO
+// ============================================================================
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  
+  &.filtered {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    
+    &.filtered {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+}
+
+.skill-card {
+  @include flex-center;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  background: $bg-white;
+  border-radius: 12px;
+  @include card-shadow;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  
+  // Efecto de borde según categoría
+  &[data-category="frontend"]:hover {
+    border-color: #dd0031; // Angular red
+  }
+  
+  &[data-category="backend"]:hover {
+    border-color: #68a063; // Node green
+  }
+  
+  &[data-category="database"]:hover {
+    border-color: #336791; // SQL blue
+  }
+  
+  &[data-category="devops"]:hover {
+    border-color: #2496ed; // Docker blue
+  }
+  
+  &[data-category="cloud"]:hover {
+    border-color: #4285f4; // Google blue
+  }
+  
+  &[data-category="tools"]:hover {
+    border-color: #f05133; // Git orange
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    
+    .skill-icon i {
+      transform: scale(1.1);
+    }
+    
+    .skill-level {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .skill-icon {
+    margin-bottom: 1rem;
+    height: 60px;
+    @include flex-center;
+    
+    i {
+      font-size: 3rem;
+      transition: transform 0.3s ease;
+      
+      // Asegurar que los iconos de Devicon se muestren correctamente
+      &.devicon-angularjs-plain,
+      &.devicon-nodejs-plain,
+      &.devicon-nestjs-plain,
+      &.devicon-express-original,
+      &.devicon-typescript-plain,
+      &.devicon-docker-plain,
+      &.devicon-git-plain,
+      &.devicon-mysql-plain,
+      &.devicon-postgresql-plain,
+      &.devicon-googlecloud-plain,
+      &.devicon-amazonwebservices-plain,
+      &.devicon-azure-plain,
+      &.devicon-linux-plain,
+      &.devicon-github-plain,
+      &.devicon-gitlab-plain,
+      &.devicon-nginx-plain,
+      &.devicon-jenkins-plain,
+      &.devicon-kubernetes-plain,
+      &.devicon-redis-plain,
+      &.devicon-mongodb-plain,
+      &.devicon-jest-plain,
+      &.devicon-webpack-plain,
+      &.devicon-npm-original-wordmark,
+      &.devicon-postman-plain,
+      &.devicon-vscode-plain,
+      &.devicon-jira-plain,
+      &.devicon-figma-plain,
+      &.devicon-socketio-plain,
+      &.devicon-graphql-plain,
+      &.devicon-bootstrap-plain,
+      &.devicon-sass-plain,
+      &.devicon-react-plain,
+      &.devicon-vuejs-plain {
+        font-size: 3.5rem;
+      }
+    }
+  }
+  
+  .skill-info {
+    text-align: center;
+    width: 100%;
+    
+    .skill-name {
+      font-weight: 600;
+      color: $text-primary;
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    
+    .skill-meta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .skill-level {
+      padding: 0.25rem 0.75rem;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: white;
+      transition: all 0.3s ease;
+      
+      // Colores por nivel
+      &[style*="advanced"] {
+        box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+      }
+      
+      &[style*="intermediate"] {
+        box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+      }
+      
+      &[style*="basic"] {
+        box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+      }
+    }
+  }
+}
+
+// ============================================================================
+// VISTA FILTRADA
+// ============================================================================
+
+.filtered-view {
+  .skills-grid.filtered {
+    margin-bottom: 0;
+  }
+}
+
+// Responsive adicional
+@media (max-width: $tablet) {
+  .skills-filters {
+    gap: 0.25rem;
+    
+    .filter-btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    
+    .skills-count {
+      align-self: flex-start;
+    }
+  }
+}

@@ -1,1 +1,185 @@
-<p>skills works!</p>
+<!-- ==========================================================================
+     SECCIÓN PRINCIPAL DE HABILIDADES
+========================================================================== -->
+<section class="skills-section">
+  
+  <!-- HEADER PRINCIPAL -->
+  <header class="section-header">
+    <h1 class="section-title">Stack Tecnológico</h1>
+    <p class="section-subtitle">Technologías y herramientas con años de experiencia en desarrollo</p>
+  </header>
+
+  <!-- ======================================================================
+       FILTROS DE CATEGORÍAS
+  ====================================================================== -->
+  <div class="skills-filters">
+    <button 
+      class="filter-btn" 
+      [class.active]="currentFilter === 'all'"
+      (click)="filterSkills('all')">
+      Todas las Skills
+    </button>
+    
+    <button 
+      *ngFor="let category of getCategories()"
+      class="filter-btn" 
+      [class.active]="currentFilter === category"
+      (click)="filterSkills(category)">
+      {{ skillCategories[category] }}
+    </button>
+  </div>
+
+  <!-- ======================================================================
+       VISTA CON FILTROS
+  ====================================================================== -->
+  <div *ngIf="currentFilter !== 'all'" class="filtered-view">
+    <div class="category-header">
+      <h2 class="category-title">{{ getCategoryName(currentFilter) }}</h2>
+      <span class="skills-count">{{ getSkillsByCategory(currentFilter).length }} habilidades</span>
+    </div>
+    
+    <div class="skills-grid filtered">
+      <div class="skill-card" 
+           *ngFor="let skill of getSkillsByCategory(currentFilter)" 
+           [@fadeIn] 
+           [attr.data-category]="skill.category"
+           [attr.data-level]="skill.level">
+        
+        <div class="skill-icon">
+          <i [class]="skill.icon" [title]="skill.name"></i>
+        </div>
+        
+        <div class="skill-info">
+          <span class="skill-name">{{ skill.name }}</span>
+          <div class="skill-meta">
+            <span class="skill-level" [style.background]="getLevelColor(skill.level)">
+              {{ getLevelText(skill.level) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       VISTA POR CATEGORÍAS (DEFAULT)
+  ====================================================================== -->
+  <div *ngIf="currentFilter === 'all'" class="skills-categories">
+    
+    <div class="category" *ngFor="let category of getCategories()">
+      <div class="category-header">
+        <h3 class="category-title">{{ skillCategories[category] }}</h3>
+        <span class="skills-count">{{ getSkillsByCategory(category).length }} skills</span>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skill-card" 
+             *ngFor="let skill of getSkillsByCategory(category)" 
+             [@fadeIn] 
+             [attr.data-category]="skill.category"
+             [attr.data-level]="skill.level">
+          
+          <div class="skill-icon">
+            <i [class]="skill.icon" [title]="skill.name"></i>
+          </div>
+          
+          <div class="skill-info">
+            <span class="skill-name">{{ skill.name }}</span>
+            <div class="skill-meta">
+              <span class="skill-level" [style.background]="getLevelColor(skill.level)">
+                {{ getLevelText(skill.level) }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       BLOQUE: DEMOSTRACIÓN API & GRÁFICOS
+  ====================================================================== -->
+  <div class="api-demo-section">
+    
+    <header class="demo-header">
+      <h2 class="demo-title">Demostración de Integración</h2>
+      <p class="demo-description">
+        Ejemplo de consumo de API REST y visualización de datos
+      </p>
+    </header>
+
+    <!-- PANEL DE CONTROL API -->
+    <div class="api-controls">
+      <button class="btn btn-primary" 
+              (click)="fetchUsers()" 
+              [disabled]="isLoading">
+        
+        <span class="btn-content" *ngIf="!isLoading; else loading">
+          <i class="devicon-devicon-plain"></i>
+          Ejecutar API Simulada
+        </span>
+        
+        <ng-template #loading>
+          <i class="spinner"></i>
+          Cargando Datos...
+        </ng-template>
+      </button>
+    </div>
+
+    <!-- RESULTADOS DE LA API -->
+    <div class="api-results" *ngIf="users.length > 0">
+      
+      <h3 class="results-title">Datos Obtenidos de la API</h3>
+      
+      <div class="users-grid">
+        <div class="user-card" 
+             *ngFor="let user of users; let i = index" 
+             [@stagger] 
+             [style.animation-delay]="(i * 100) + 'ms'">
+          
+          <div class="user-avatar">
+            <i class="devicon-devicon-plain"></i>
+          </div>
+          
+          <div class="user-details">
+            <h4 class="user-name">{{ user.name }}</h4>
+            <p class="user-email">
+              <i class="icon-email"></i>
+              {{ user.email }}
+            </p>
+            <span class="user-role" [class]="'role-' + user.role.toLowerCase()">
+              <i class="icon-badge"></i>
+              {{ user.role }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VISUALIZACIÓN DE DATOS -->
+    <div class="data-visualization" *ngIf="users.length > 0">
+      
+      <h3 class="viz-title">Visualización de Datos</h3>
+      <p class="viz-description">
+        Distribución de usuarios por roles - Powered by Ngx-Charts
+      </p>
+      
+      <div class="chart-container">
+        <ngx-charts-bar-vertical
+          [results]="chartData"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="false"
+          [showDataLabel]="true"
+          [gradient]="false"
+          [scheme]="colorScheme"
+          [xAxisLabel]="'Roles'"
+          [yAxisLabel]="'Cantidad'"
+          [showXAxisLabel]="true"
+          [showYAxisLabel]="true">
+        </ngx-charts-bar-vertical>
+      </div>
+    </div>
+
+  </div>
+</section>

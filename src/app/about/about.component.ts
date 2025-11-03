@@ -49,8 +49,8 @@ export class AboutComponent {
   ];
 
   skills = [
-    'Angular', 'Node.js', 'NestJS', 'Express', 'TypeORM',
-    'MySQL', 'PostgreSQL', 'Linux', 'PM2', 'SSL', 'Power Automate'
+    'Angular', 'Node.js', 'NestJS', 'Express', 'TypeORM','GCP', 'REST APIs',
+    'Docker', 'Git', 'GitHub','MySQL', 'PostgreSQL', 'Oracle', 'Linux', 'PM2', 'SSL', 'Power Automate'
   ];
 
   contact = {
