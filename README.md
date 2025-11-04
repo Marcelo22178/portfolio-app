@@ -1,69 +1,171 @@
-🌐 PortfolioApp
+# 🚀 Portfolio App
 
-Un proyecto desarrollado en Angular 19 para mostrar mi portafolio personal, donde presento mis habilidades, proyectos y experiencia en desarrollo web.
+<div align="center">
 
-🚀 Tecnologías principales
+![Angular](https://img.shields.io/badge/Angular-19-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-Angular 19 (framework principal)
+**Un portafolio personal moderno desarrollado con Angular 19**
 
-TypeScript
+[🌐 Ver Demo](https://marcelo22178.github.io/portfolio-app/) • [📋 Reportar Bug](https://github.com/Marcelo22178/portfolio-app/issues) • [💡 Sugerir Feature](https://github.com/Marcelo22178/portfolio-app/issues)
 
-HTML5 / CSS3 / SCSS
+</div>
 
-Node.js & npm (para dependencias y scripts)
+---
 
-⚙️ Instalación y ejecución
+## 📖 Descripción
 
-Clona el repositorio e instala las dependencias:
+Este proyecto es un portafolio personal interactivo que presenta mis habilidades, proyectos y experiencia como desarrollador frontend. Construido con **Angular 19** y las mejores prácticas de desarrollo moderno.
 
-git clone https://github.com/tuusuario/portfolio-app.git
-cd portfolio-app
-npm install
+### ✨ Características
 
+- 🎨 **Diseño Responsive** - Adaptable a todos los dispositivos
+- ⚡ **Rendimiento Optimizado** - Carga rápida y experiencia fluida
+- 🎯 **Navegación Intuitiva** - Fácil de usar y navegar
+- 📱 **Mobile First** - Diseñado primero para dispositivos móviles
+- 🌙 **Modo Oscuro** - Interfaz adaptable según preferencias del usuario
 
-Inicia el servidor de desarrollo:
+## 🛠️ Tecnologías
 
-ng serve
+<table>
+<tr>
+<td align="center" width="96">
+<img src="https://skillicons.dev/icons?i=angular" width="48" height="48" alt="Angular" />
+<br>Angular 19
+</td>
+<td align="center" width="96">
+<img src="https://skillicons.dev/icons?i=typescript" width="48" height="48" alt="TypeScript" />
+<br>TypeScript
+</td>
+<td align="center" width="96">
+<img src="https://skillicons.dev/icons?i=html" width="48" height="48" alt="HTML5" />
+<br>HTML5
+</td>
+<td align="center" width="96">
+<img src="https://skillicons.dev/icons?i=scss" width="48" height="48" alt="SCSS" />
+<br>SCSS
+</td>
+<td align="center" width="96">
+<img src="https://skillicons.dev/icons?i=nodejs" width="48" height="48" alt="Node.js" />
+<br>Node.js
+</td>
+</tr>
+</table>
 
+## 🚀 Instalación y Uso
 
-Luego abre tu navegador en 👉 http://localhost:4200/
+### Prerrequisitos
 
-La aplicación se recargará automáticamente al realizar cambios.
+- Node.js (versión 18 o superior)
+- npm o yarn
+- Angular CLI
 
-🧩 Generar nuevos componentes
+### Instalación
 
-Para crear nuevos componentes, módulos o servicios con Angular CLI:
+1. **Clona el repositorio**
+   ```bash
+   git clone https://github.com/Marcelo22178/portfolio-app.git
+   ```
 
-ng generate component nombre-componente
+2. **Navega al directorio del proyecto**
+   ```bash
+   cd portfolio-app
+   ```
 
+3. **Instala las dependencias**
+   ```bash
+   npm install
+   ```
 
-Consulta todos los esquemas disponibles con:
+4. **Inicia el servidor de desarrollo**
+   ```bash
+   ng serve
+   ```
 
-ng generate --help
+5. **¡Listo!** Abre tu navegador en `http://localhost:4200/`
 
-🏗️ Compilación para producción
+> 💡 **Tip:** La aplicación se recargará automáticamente cuando realices cambios en el código.
 
-Para generar una versión optimizada del proyecto:
+## 📦 Scripts Disponibles
 
+| Comando | Descripción |
+|---------|-------------|
+| `ng serve` | Inicia servidor de desarrollo |
+| `ng build` | Construye el proyecto para producción |
+| `ng test` | Ejecuta las pruebas unitarias |
+| `ng lint` | Ejecuta el linter de código |
+| `ng generate component [name]` | Genera un nuevo componente |
+
+## 🏗️ Construcción para Producción
+
+Para crear una versión optimizada del proyecto:
+
+```bash
 ng build --configuration production
+```
 
+Los archivos de producción se generarán en la carpeta `dist/`.
 
-Los archivos compilados se guardarán en la carpeta dist/.
+## 🧪 Testing
 
-🧪 Tests
+Ejecuta las pruebas unitarias con:
 
-Ejecutar pruebas unitarias con Karma:
-
+```bash
 ng test
+```
 
+Las pruebas se ejecutan con **Karma** y **Jasmine**.
 
-(Este proyecto no incluye pruebas E2E por defecto.)
+## 📁 Estructura del Proyecto
 
-📄 Descripción general
+```
+portfolio-app/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── header/
+│   │   │   ├── about/
+│   │   │   ├── skills/
+│   │   │   ├── projects/
+│   │   │   └── contact/
+│   │   ├── app.component.*
+│   │   ├── app.config.ts
+│   │   └── app.routes.ts
+│   ├── assets/
+│   ├── styles.scss
+│   └── index.html
+├── public/
+└── README.md
+```
 
-Este portafolio fue creado para presentar mi trabajo como desarrollador frontend, con un enfoque en Angular, diseño adaptable (responsive) y buenas prácticas de desarrollo.
+## 🤝 Contribuciones
 
-📬 Contacto
+Las contribuciones son bienvenidas. Para cambios importantes:
 
-Puedes visitar el portafolio desplegado aquí:
-👉 https://marcelo22178.github.io/portfolio-app/
+1. Fork el proyecto
+2. Crea una branch para tu feature (`git checkout -b feature/nueva-caracteristica`)
+3. Commit tus cambios (`git commit -m 'Añadir nueva característica'`)
+4. Push a la branch (`git push origin feature/nueva-caracteristica`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 📬 Contacto
+
+**Marcelo** - [@Marcelo22178](https://github.com/Marcelo22178)
+
+🌐 **Demo en vivo:** [https://marcelo22178.github.io/portfolio-app/](https://marcelo22178.github.io/portfolio-app/)
+
+---
+
+<div align="center">
+
+**¡Gracias por visitar mi portafolio! ⭐**
+
+*Si te gusta este proyecto, no olvides darle una estrella* ⭐
+
+</div>
